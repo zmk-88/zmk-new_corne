@@ -207,7 +207,7 @@
                                          &msc SCRL_RIGHT                                   //
                                                    &trans  &trans    &trans     &trans     &kp END   &mmv MOVE_LEFT  
                                                                                                                 &mmv MOVE_DOWN  
-                                                                                                                         &&mmv MOVE_RIGHT 
+                                                                                                                         &mmv MOVE_RIGHT 
                                                                                                                                    &kp PG_DN &trans 
 &trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans                &trans    &trans    &trans    &trans    &trans    &trans 
                                &trans    &trans    &trans                                  &trans    &trans    &trans
