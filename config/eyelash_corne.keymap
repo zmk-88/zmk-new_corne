@@ -173,8 +173,8 @@
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5            &trans                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans     &trans     &kp PLUS  &kp N4    &kp N5    &kp N6    &kp EQUAL &kp INS
-&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans                &kp MINUS &kp N1    &kp N2    &kp N3    &trans    &trans 
+&trans     &trans    &trans    &trans    &kp PIPE  &kp BSLH  &trans  &trans     &trans     &kp PLUS  &kp N4    &kp N5    &kp N6    &kp EQUAL &kp INS
+&trans     &trans    &trans    &trans    &trans    &kp UNDER &trans  &trans                &kp MINUS &kp N1    &kp N2    &kp N3    &trans    &trans 
                                &trans    &trans    &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
