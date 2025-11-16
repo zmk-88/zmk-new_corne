@@ -232,7 +232,7 @@
             >;
             sensor-bindings = <&scroll_encoder>;
         };
-        func_layer { // 6
+        func2_layer { // 6
             display-name = "F11-24";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
