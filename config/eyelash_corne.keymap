@@ -44,7 +44,7 @@
             bindings = <&kp FSLH>, <&kp LS(FSLH)>;
         };
 
-        td_period: td_dot {
+        td_dot: td_dot {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_PERIOD";
             #binding-cells = <0>;
