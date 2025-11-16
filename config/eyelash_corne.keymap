@@ -224,7 +224,7 @@
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
                                                    &trans  &trans    &trans     &trans     &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&mo 4      &guil_l   &guil_r   &Omega    &trans    &trans     &trans  &trans    &trans               &trans    &trans    &trans    &trans    &trans    &trans 
+&mo 4      &guil_l   &guil_r   &trans    &trans    &trans     &trans  &trans    &trans               &trans    &trans    &trans    &trans    &trans    &trans 
                                &trans    &trans    &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
