@@ -110,6 +110,64 @@
             bindings = <&kp ESC>, <&sys_reset>;
         };        
     };
+    // U+00AB   « LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (&laquo;)   ALT 0171
+    // U+00BB   » RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (&raquo;)  ALT 0187
+    // U+2039   ‹ SINGLE LEFT-POINTING ANGLE QUOTATION MARK (&lsaquo;)  ALT 0129
+    // U+203A   › SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (&rsaquo;) ALT 0155
+    // U+03A9     Omega                                                 ALT 937
+
+    macros { 
+        guil_l: guillemets_left {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N1>
+                , <&macro_release &kp LALT>
+            ;
+        };
+        guil_r: guillemets_right {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N8 &kp KP_N7>
+                , <&macro_release &kp LALT>
+            ;
+        };
+        aq_l: angle_quote_left {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N9>
+                , <&macro_release &kp LALT>
+            ;
+        };
+        aq_r: angle_quote_right {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N5>
+                , <&macro_release &kp LALT>
+            ;
+        };
+        Omega: Omega {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N9 &kp KP_N3 &kp KP_N7>
+                , <&macro_release &kp LALT>
+            ;
+        };
+    };
 
     rgb_encoder: rgb_encoder {
         compatible = "zmk,behavior-sensor-rotate";
@@ -166,7 +224,7 @@
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
                                                    &trans  &trans    &trans     &trans     &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&mo 4      &trans    &trans    &trans    &trans    &trans  &trans    &trans                &trans    &trans    &trans    &trans    &trans    &trans 
+&mo 4      &guil_l   &guil_r   &Omega    &trans    &trans     &trans  &trans    &trans               &trans    &trans    &trans    &trans    &trans    &trans 
                                &trans    &trans    &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -188,7 +246,7 @@
             display-name = "SYMBOL";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
-&mo 7      &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &trans                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
+&to 7      &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &trans                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
 &kp TAB    &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
 &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
                                &trans    &trans    &trans                                  &trans    &trans    &trans
@@ -201,7 +259,7 @@
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp TILDE  &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &mkp LCLK &mmv MOVE_UP   
-                                                                                                                         &mkp RCLK &kp PG_UP &trans
+                                                                                                ,l                         &mkp RCLK &kp PG_UP &trans
 &trans     &trans    &msc SCRL_LEFT                                                        //
                                &msc SCRL_DOWN                                              //
                                          &msc SCRL_RIGHT                                   //
@@ -248,7 +306,7 @@
             display-name = "RGB";
             bindings = <
 //              |               |               |               |               |                 .         .          .          |         |         |         |         |         |         .
-&mo 0           &none           &none           &none           &none           &none                       &none                 &none     &none     &none     &none     &none     &out OUT_BLE    
+&to 0           &none           &none           &none           &none           &kp N1                       &none                &none     &none     &none     &none     &none     &out OUT_BLE    
 &rgb_ug RGB_TOG &rgb_ug RGB_ON  &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF   &none     &none      &none      &none     &none     &none     &none     &none     &bootloader
 &rgb_ug RGB_TOG &rgb_ug RGB_OFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFR   &none     &none                 &none     &none     &none     &none     &none     &out OUT_USB
                                                                 &trans          &trans            &trans                          &trans    &trans    &trans
@@ -261,6 +319,5 @@
 
 // 
 // &kp C_MUTE  &kp SCROLLLOCK  &kp PAUSE_BREAK &key_repeat
-// &rgb_ug TOG ON/OFF HUI/HUD SAI/SAD BRI/BRD EFF/EFR
 // RGB_TOG (0,0-100,0-100)
 
