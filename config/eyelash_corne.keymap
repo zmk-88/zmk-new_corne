@@ -134,7 +134,7 @@
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <4 2>;
+            if-layers = <2 3>;
             then-layer = <1>;
         };
     };
@@ -148,13 +148,25 @@
 &kp ESC    &kp Q     &kp W     &kp E     &kp R     &kp T             &kp UP                &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSPC
 &kp TAB    &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
 &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
-                               &kp LCTRL &kp LGUI  &lt 1 ENTER                          &lt 3 SPACE  &kp LALT  &kp K_APP
+                               &kp LCTRL &kp LGUI  &lt 2 ENTER                          &lt 3 SPACE  &kp LALT  &kp K_APP
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        layer_1 { // 1
-            display-name = "MOVE";
+        layer_1 { RAISE + LOWER
+            display-name = "SYMBOL";
+            bindings = <
+//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
+&trans     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &trans                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
+&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
+&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans                &trans    &trans    &trans    &trans    &trans    &trans 
+                               &trans    &trans    &trans                                  &trans    &trans    &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        layer_2 { // LOWER
+            display-name = "MOTION";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp TILDE  &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &trans    &kp UP    &trans    &kp PG_UP &trans
@@ -168,7 +180,7 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_2 {  // 2
+        layer_3 {  // RAISE
             display-name = "NUMBER";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
@@ -179,24 +191,12 @@
             >;
             sensor-bindings = <&scroll_encoder>;
         };
-
-        layer_3 { // 3
-            display-name = "SYMBOL";
-            bindings = <
-//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
-&trans     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &trans                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
-&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
-&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans                &trans    &trans    &trans    &trans    &trans    &trans 
-                               &trans    &trans    &trans                                  &trans    &trans    &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-        };
     };
 };
 
 // &studio_unlock &bootloader  
-// &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_RIGHT  &kp INS  &kp DEL 
-// &sys_reset  &kp C_MUTE &mmv MOVE_DOWN  &kp SCROLLLOCK  &kp PAUSE_BREAK
+// &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_RIGHT  
+// &sys_reset  &kp C_MUTE  &kp SCROLLLOCK  &kp PAUSE_BREAK
 // &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3            
 // &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  
 // &out OUT_USB  &out OUT_BLE
