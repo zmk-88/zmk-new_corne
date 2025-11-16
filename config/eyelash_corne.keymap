@@ -247,11 +247,11 @@
         rgb_layer  { // 7
             display-name = "RGB";
             bindings = <
-//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
-&mo 0       &none       &none       &none       &none       &none             &none        &none     &none     &none     &none     &none     &out OUT_BLE    
-&rgb_ug TOG &rgb_ug ON  &rgb_ug HUI &rgb_ug SAI &rgb_ug BRI &rgb_ug EFF &none &none &none  &none     &none     &none     &none     &none     &bootloader
-&rgb_ug TOG &rgb_ug OFF &rgb_ug HUD &rgb_ug SAD &rgb_ug BRD &rgb_ug EFR &none &none        &none     &none     &none     &none     &none     &out OUT_USB
-                                    &trans      &trans      &trans                         &trans    &trans    &trans
+//              |               |               |               |               |                 .         .          .          |         |         |         |         |         |         .
+&mo 0           &none           &none           &none           &none           &none                       &none                 &none     &none     &none     &none     &none     &out OUT_BLE    
+&rgb_ug RGB_TOG &rgb_ug RGB_ON  &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF   &none     &none      &none      &none     &none     &none     &none     &none     &bootloader
+&rgb_ug RGB_TOG &rgb_ug RGB_OFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFR   &none     &none                 &none     &none     &none     &none     &none     &out OUT_USB
+                                                                &trans          &trans            &trans                          &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -260,7 +260,7 @@
 };
 
 // 
-// &kp C_MUTE  &kp SCROLLLOCK  &kp PAUSE_BREAK 
+// &kp C_MUTE  &kp SCROLLLOCK  &kp PAUSE_BREAK &key_repeat
 // &rgb_ug TOG ON/OFF HUI/HUD SAI/SAD BRI/BRD EFF/EFR
 // RGB_TOG (0,0-100,0-100)
 
