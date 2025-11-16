@@ -24,6 +24,10 @@
     time-to-max-speed-ms = <500>;
     acceleration-exponent = <1>;
     trigger-period-ms = <16>;
+    // x-input-code = <INPUT_REL_X>;
+    // y-input-code = <INPUT_REL_Y>;
+    // time-to-max-speed-ms = <300>;
+    // acceleration-exponent = <1>;
 };
 
 &soft_off { hold-time-ms = <2000>; };
@@ -132,16 +136,16 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-
         tri_layer {
-            if-layers = <2 3>;
-            then-layer = <1>;
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
-        keymap {
+
+    keymap {
         compatible = "zmk,keymap";
 
-        default_layer { // 
+        base_layer { // 0
             display-name = "RABBIT";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
@@ -153,19 +157,7 @@
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        layer_1 { // RAISE + LOWER
-            display-name = "SYMBOL";
-            bindings = <
-//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
-&trans     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &trans                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
-&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
-&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans                &trans    &trans    &trans    &trans    &trans    &trans 
-                               &trans    &trans    &trans                                  &trans    &trans    &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_2 { // LOWER
+        motion_layer { // LOWER 1
             display-name = "MOTION";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
@@ -180,7 +172,7 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_3 {  // RAISE
+        number_layer { // RAISE 2
             display-name = "NUMBER";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
@@ -191,12 +183,83 @@
             >;
             sensor-bindings = <&scroll_encoder>;
         };
+
+        symbol_layer { // 3 tri_layer RAISE + LOWEE
+            display-name = "SYMBOL";
+            bindings = <
+//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
+&trans     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &trans                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
+&kp TAB    &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
+&kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
+                               &trans    &trans    &trans                                  &trans    &trans    &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        mouse_layer { // 4
+            display-name = "MOTION";
+            bindings = <
+//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
+&kp TILDE  &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &mkp LCLK &mmv MOVE_UP   
+                                                                                                                         &mkp RCLK &kp PG_UP &trans
+&trans     &trans    &msc SCRL_LEFT                                                        //
+                               &msc SCRL_DOWN                                              //
+                                         &msc SCRL_RIGHT                                   //
+                                                   &trans  &trans    &trans     &trans     &kp END   &mmv MOVE_LEFT  
+                                                                                                                &mmv MOVE_DOWN  
+                                                                                                                         &&mmv MOVE_RIGHT 
+                                                                                                                                   &kp PG_DN &trans 
+&trans     &trans    &trans    &trans    &trans    &trans  &trans    &trans                &trans    &trans    &trans    &trans    &trans    &trans 
+                               &trans    &trans    &trans                                  &trans    &trans    &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        func_layer { // 5
+            display-name = "F1-14";
+            bindings = <
+//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
+&out OUT_USB &kp F1  &kp F2    &kp F3    &kp F4    &kp F5            &none                 &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &none
+&out OUT_BLE &kp F11 &kp F12   &kp F13   &kp F14   &none    &none    &none      &none      &none     &kp F4    &kp F5    &kp F6    &none     &none
+&bt  BT_CLR                                                                                //
+            &bt BT_SEL 0                                                                   //
+                     &bt BT_SEL 1                                                          //
+                               &bt BT_SEL 2                                                //
+                                          &bt BT_SEL 3                                     //
+                                                   &bt BT_SEL 4                            // 
+                                                            &none    %none                 &kp F1    &kp F2    &kp F3    &none     &none     &none
+                                &trans    &trans   &trans                                  &trans    &trans    &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+        func_layer { // 6
+            display-name = "F11-24";
+            bindings = <
+//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
+&none      &kp F11   &kp F12   &kp F13   &kp F14   &kp F15           &none                 &kp F16   &kp F17   &kp F18   &kp F19   &kp F20   &none
+&none      &kp F21   &kp F22   &kp F23   &kp F24   &none   &none     &none     &none       &none     &none     &none     &none     &none     &none
+&none      &none     &none     &none     &none     &none   &none     &none                 &none     &none     &none     &none     &none     &none                    
+                               &trans    &trans    &trans                                  &trans    &trans    &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        rgb_layer { //7
+            display-name = "RGB";
+            bindings = <
+//         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
+&none      &none     &none     &none     &none     &none             &none                 &none     &none     &none     &none     &none     &none                    
+&none      &none     &none     &none     &none     &none   &none     &none      &none      &none     &none     &none     &none     &none     &none                    
+&none      &none     &none     &none     &none     &none   &none     &none                 &none     &none     &none     &none     &none     &none                    
+                               &trans    &trans    &trans                                  &trans    &trans    &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
+        };
+
     };
 };
 
 // &studio_unlock &bootloader  
-// &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_RIGHT  
 // &sys_reset  &kp C_MUTE  &kp SCROLLLOCK  &kp PAUSE_BREAK
-// &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3            
 // &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  
-// &out OUT_USB  &out OUT_BLE
+
