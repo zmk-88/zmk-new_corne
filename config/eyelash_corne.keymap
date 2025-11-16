@@ -157,16 +157,16 @@
                 , <&macro_release &kp LALT>
             ;
         };
-//        omega: omega {
-//            compatible = "zmk,behavior-macro";
-//            wait-ms = <40>;
-//            tap-ms = <40>;
-//            bindings
-//                = <&macro_press   &kp LALT>
-//                , <&macro_tap     &kp KP_N9 &kp KP_N3 &kp KP_N7>
-//                , <&macro_release &kp LALT>
-//            ;
-//        };
+        omega: omega {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N9 &kp KP_N3 &kp KP_N7>
+                , <&macro_release &kp LALT>
+            ;
+        };
     };
 
     rgb_encoder: rgb_encoder {
@@ -224,7 +224,7 @@
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
                                                    &trans  &trans    &trans     &trans     &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&mo 4      &guil_l   &guil_r   &trans    &trans    &trans     &trans  &trans    &trans               &trans    &trans    &trans    &trans    &trans    &trans 
+&mo 4      &guil_l   &guil_r   &omega    &trans    &trans     &trans  &trans    &trans               &trans    &trans    &trans    &trans    &trans    &trans 
                                &trans    &trans    &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -259,7 +259,7 @@
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp TILDE  &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &mkp LCLK &mmv MOVE_UP   
-                                                                                                ,l                         &mkp RCLK &kp PG_UP &trans
+                                                                                                                         &mkp RCLK &kp PG_UP &trans
 &trans     &trans    &msc SCRL_LEFT                                                        //
                                &msc SCRL_DOWN                                              //
                                          &msc SCRL_RIGHT                                   //
