@@ -225,12 +225,12 @@
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp TILDE  &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &trans    &kp UP    &trans    &kp PG_UP &trans
-&trans     &trans    &msc SCRL_LEFT 
+&to 4      &trans    &msc SCRL_LEFT 
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
                                                    &trans  &trans    &trans     &trans     &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&mo 4      &guil_l   &guil_r   &omega    &trans    &trans  &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
-                               &trans    &trans    &trans                                  &trans    &trans    &trans
+&kp LSHFT   &guil_l   &guil_r   &omega    &trans   &trans  &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
+                                &trans    &trans   &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -263,7 +263,7 @@
             display-name = "MOTION";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
-&kp TILDE  &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &mkp LCLK &mmv MOVE_UP   
+&to 0      &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &mkp LCLK &mmv MOVE_UP   
                                                                                                                          &mkp RCLK &kp PG_UP &trans
 &trans     &trans    &msc SCRL_LEFT                                                        //
                                &msc SCRL_DOWN                                              //
