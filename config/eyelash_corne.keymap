@@ -117,6 +117,32 @@
     // U+03A9     Omega                                                 ALT 937
 
     macros { 
+        ctlgui_l: ctrl_gui_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LCTRL>
+                , <&macro_press   &kp LGUI>
+                , <&macro_tap     &kp LEFT>
+                , <&macro_release &kp LGUI>
+                , <&macro_release &kp LCTRL>
+            ;
+        };
+        ctlgui_r: ctrl_gui_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LCTRL>
+                , <&macro_press   &kp LGUI>
+                , <&macro_tap     &kp RIGHT>
+                , <&macro_release &kp LGUI>
+                , <&macro_release &kp LCTRL>
+            ;
+        };
         guil_l: guillemets_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -168,7 +194,7 @@
             tap-ms = <40>;
             bindings
                 = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N9 &kp KP_N3 &kp KP_N7>
+                , <&macro_tap     &kp KP_N0 &kp KP_N9 &kp KP_N3 &kp KP_N7>
                 , <&macro_release &kp LALT>
             ;
         };
@@ -228,8 +254,8 @@
 &to 4      &trans    &msc SCRL_LEFT 
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
-                                                   &trans  &trans    &trans     &trans     &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&kp LSHFT   &guil_l   &guil_r   &omega    &trans   &trans  &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
+                                                   &trans  &ctlgui_l &trans     &ctlgui_r  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
+&kp LSHFT   &guil_l   &guil_r   &omega    &aq_l    &aq_r   &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
                                 &trans    &trans   &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -259,8 +285,8 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-        mouse_layer { // 4 MOTION (MOUSE EMULATION)
-            display-name = "MOTION";
+        mouse_layer { // 4 MOUSE EMULATION
+            display-name = "MOUSE";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &to 0      &trans    &mkp LCLK &msc SCRL_UP &mkp RCLK &trans         &trans                &kp HOME  &mkp LCLK &mmv MOVE_UP   
@@ -311,9 +337,9 @@
             display-name = "RGB";
             bindings = <
 //              |               |               |               |               |                 .         .          .          |         |         |         |         |         |         .
-&to 0           &none           &none           &none           &none           &kp N1                      &none                &none     &none     &none     &none     &none     &out OUT_BLE    
-&rgb_ug RGB_TOG &rgb_ug RGB_ON  &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF   &none     &none      &none      &none     &none     &none     &none     &none     &bootloader
-&rgb_ug RGB_TOG &rgb_ug RGB_OFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFR   &none     &none                 &none     &none     &none     &none     &none     &out OUT_USB
+&to 0           &none           &none           &none           &none           &kp N1                      &none                 &none     &none     &none     &none     &none     &out OUT_BLE    
+&none           &rgb_ug RGB_ON  &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF   &none     &none      &none      &none     &none     &none     &none     &none     &bootloader
+&none           &rgb_ug RGB_OFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFR   &none     &none                 &none     &none     &none     &none     &none     &out OUT_USB
                                                                 &trans          &trans            &trans                          &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -323,10 +349,10 @@
             display-name = "KEYPAD";
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
-&to 0      &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N4 &kp KP_N5         &trans                &kp KP_N6 &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0 &kp DEL
-&none      &trans    &trans    &trans    &kp PIPE  &kp BSLH  &trans  &trans     &trans     &kp PLUS  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp EQUAL &kp INS
-&kp LSHFT  &trans    &trans    &trans    &trans    &kp UNDER &trans  &trans                &kp MINUS &kp KP_N1 &kp KP_N2 &kp KP_N3 &trans    &trans 
-                               &trans    &trans    &trans                                  &trans    &trans    &trans
+&to 0      &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N4 &kp KP_N5            &trans          &kp KP_N6    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0 &kp DEL
+&none      &none     &none     &none     &none     &kp KP_LPAR &trans   &trans  &trans  &kp KP_PLUS  &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp EQUAL &kp INS
+&kp LSHFT  &none     &none     &none     &none     &kp KP_RPAR &trans   &trans          &kp KP_MINUS &kp KP_N1 &kp KP_N2 &kp KP_N3 &trans    &trans 
+                               &trans    &trans    &trans                               &trans      &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
