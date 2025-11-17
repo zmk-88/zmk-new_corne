@@ -119,6 +119,7 @@
     macros { 
         guil_l: guillemets_left {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
@@ -129,6 +130,7 @@
         };
         guil_r: guillemets_right {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
@@ -139,6 +141,7 @@
         };
         aq_l: angle_quote_left {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
@@ -149,6 +152,7 @@
         };
         aq_r: angle_quote_right {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
@@ -159,6 +163,7 @@
         };
         omega: omega {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
