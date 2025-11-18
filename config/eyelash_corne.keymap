@@ -18,7 +18,7 @@
 
 &msc {
     acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
+    time-to-max-speed-ms = <100>;     // 300
     delay-ms = <0>;                   // 0
 };
 
@@ -42,84 +42,89 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
-        
         td_slash: td_slash {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_SLASH";
+            // label = "TD_SLASH";
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&kp LS(FSLH)>;
         };
-
         td_dot: td_dot {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_PERIOD";
+            // label = "TD_PERIOD";
             #binding-cells = <0>;
             bindings = <&kp PERIOD>, <&kp LS(PERIOD)>;
         };
-
         td_comma: td_comma {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_COMMA";
+            // label = "TD_COMMA";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp LS(COMMA)>;
         };
-
         td_semi: td_semi {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_SEMI";
+            // label = "TD_SEMI";
             #binding-cells = <0>;
             bindings = <&kp SEMI>, <&kp LS(SEMI)>;
         };
-
         td_quot: td_quot {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_QUOT";
+            // label = "TD_QUOT";
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE>, <&kp LS(SINGLE_QUOTE)>;
         };
-
         td_lpar: td_lpar {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_LPAR";
+            // label = "TD_LPAR";
             #binding-cells = <0>;
             bindings =
                 <&kp LEFT_PARENTHESIS>,
                 <&kp LEFT_BRACKET>,
                 <&kp LEFT_BRACE>;
         };
-
         td_rpar: td_rpar {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_RPAR";
+            // label = "TD_RPAR";
             #binding-cells = <0>;
             bindings =
                 <&kp RIGHT_PARENTHESIS>,
                 <&kp RIGHT_BRACKET>,
                 <&kp RIGHT_BRACE>;
         };
-
         td_tab_capsword: td_tab_capsword {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_TAB_CAPSWORD";
+            // label = "TD_TAB_CAPSWORD";
             #binding-cells = <0>;
             bindings = <&kp TAB>, <&caps_word>;
         };
-
         td_esc_r: td_esc_r {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_ESC_R";
+            // label = "TD_ESC_R";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&sys_reset>;
-        };        
+        };
+        td_ctrl: td_ctrl {
+            compatible = "zmk,behavior-tap-dance";
+            // label = "TD_CTRL";
+            #binding-cells = <0>;
+            binding = <&kp LCTRL>, <&sk LCTRL>;
+        };
+        td_ctrl: td_gui {
+            compatible = "zmk,behavior-tap-dance";
+            // label = "TD_GUI";
+            #binding-cells = <0>;
+            binding = <&kp LGUI>, <&sk LGUI>;
+        };
+        td_ctrl: td_alt {
+            compatible = "zmk,behavior-tap-dance";
+            // label = "TD_ALT";
+            #binding-cells = <0>;
+            binding = <&kp LALT>, <&sk LALT>;
+        };
     };
-    // U+00AB   « LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (&laquo;)   ALT 0171
-    // U+00BB   » RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (&raquo;)  ALT 0187
-    // U+2039   ‹ SINGLE LEFT-POINTING ANGLE QUOTATION MARK (&lsaquo;)  ALT 0129
-    // U+203A   › SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (&rsaquo;) ALT 0155
-    // U+03A9     Omega                                                 ALT 937
 
     macros { 
-        ctlgui_l: ctrl_gui_left {
+
+        m_ctlgui_l: ctrl_gui_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -132,7 +137,7 @@
                 , <&macro_release &kp LCTRL>
             ;
         };
-        ctlgui_r: ctrl_gui_right {
+        m_ctlgui_r: ctrl_gui_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -145,7 +150,14 @@
                 , <&macro_release &kp LCTRL>
             ;
         };
-        guil_l: guillemets_left {
+
+        // U+00AB   « LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (&laquo;)   ALT 0171
+        // U+00BB   » RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (&raquo;)  ALT 0187
+        // U+2039   ‹ SINGLE LEFT-POINTING ANGLE QUOTATION MARK (&lsaquo;)  ALT 0129
+        // U+203A   › SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (&rsaquo;) ALT 0155
+        // U+03A9     Omega                                                 ALT 0937
+
+        m_guil_l: guillemets_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -156,7 +168,7 @@
                 , <&macro_release &kp LALT>
             ;
         };
-        guil_r: guillemets_right {
+        m_guil_r: guillemets_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -167,7 +179,7 @@
                 , <&macro_release &kp LALT>
             ;
         };
-        aq_l: angle_quote_left {
+        m_aq_l: angle_quote_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -178,7 +190,7 @@
                 , <&macro_release &kp LALT>
             ;
         };
-        aq_r: angle_quote_right {
+        m_aq_r: angle_quote_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -189,7 +201,7 @@
                 , <&macro_release &kp LALT>
             ;
         };
-        omega: omega {
+        m_omega: omega {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
@@ -242,8 +254,8 @@
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp ESC    &kp Q     &kp W     &kp E     &kp R     &kp T             &kp UP                &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSPC
 &kp TAB    &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
-&kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
-                               &kp LCTRL &kp LGUI  &lt 1 ENTER                          &lt 2 SPACE  &kp LALT  &kp K_APP
+&sk LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
+                               &td_ctrl  &td_gui   &lt 1 ENTER                          &lt 2 SPACE  &td_alt   &kp K_APP
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
@@ -257,8 +269,8 @@
 &to 4      &trans    &msc SCRL_LEFT 
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
-                                                   &trans  &ctlgui_l &trans     &ctlgui_r  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&trans     &guil_l   &guil_r   &omega    &aq_l    &aq_r   &trans    &trans     &trans     &trans    &trans    &trans    &trans    &trans    &trans 
+                                                   &trans  &m_ctlgui_l &trans &m_ctlgui_r  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
+&trans     &m_guil_l &m_guil_r  &m_omega  &m_aq_l  &m_aq_r &trans      &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans 
                                 &trans    &trans   &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
