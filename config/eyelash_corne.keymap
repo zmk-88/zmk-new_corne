@@ -108,7 +108,12 @@
             #binding-cells = <0>;
             bindings = <&kp LGUI>, <&sk LGUI>;
         };
-//        td_ctrl: td_ctrl {
+        td_alt: td_alt {
+            compatible = "zmk,behavior-tap-dance";
+            // label = "TD_ALT";
+            #binding-cells = <0>;
+            bindings = <&kp LALT>, <&sk LALT>;
+        };//        td_ctrl: td_ctrl {
 //            compatible = "zmk,behavior-tap-dance";
 //            // label = "TD_CTRL";
 //            #binding-cells = <0>;
