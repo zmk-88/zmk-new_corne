@@ -102,6 +102,12 @@
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&sys_reset>;
         };
+        td_gui: td_gui {
+            compatible = "zmk,behavior-tap-dance";
+            // label = "TD_GUI";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>, <&sk LGUI>;
+        };
 //        td_ctrl: td_ctrl {
 //            compatible = "zmk,behavior-tap-dance";
 //            // label = "TD_CTRL";
