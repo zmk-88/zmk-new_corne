@@ -113,23 +113,13 @@
             // label = "TD_ALT";
             #binding-cells = <0>;
             bindings = <&kp LALT>, <&sk LALT>;
-        };//        td_ctrl: td_ctrl {
-//            compatible = "zmk,behavior-tap-dance";
-//            // label = "TD_CTRL";
-//            #binding-cells = <0>;
-//            binding = <&kp LCTRL>, <&sk LCTRL>;
-//        };
-//        td_gui: td_gui {
-//            compatible = "zmk,behavior-tap-dance";
-//            // label = "TD_GUI";
-//            #binding-cells = <0>;
-//            binding = <&kp LGUI>, <&sk LGUI>;
-//        };
-//        td_alt: td_alt {
-//            compatible = "zmk,behavior-tap-dance";
-//            #binding-cells = <0>;
-//            binding = <&kp LALT>, <&sk LALT>;
-//        };
+        };
+        td_ctrl: td_ctrl {
+            compatible = "zmk,behavior-tap-dance";
+            // label = "TD_CTRL";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&sk LCTRL>;
+        };
     };
 
     macros { 
@@ -265,8 +255,8 @@
 &kp ESC    &kp Q     &kp W     &kp E     &kp R     &kp T             &kp UP                &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSPC
 &kp TAB    &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
 &sk LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
-                               &kp LCTRL &td_gui   &lt 1 ENTER                          &lt 2 SPACE  &td_alt   &kp K_APP
-//                             &td_ctrl  &td_gui   &lt 1 ENTER                          &lt 2 SPACE  &td_alt   &kp K_APP
+                               &td_ctrl  &td_gui   &lt 1 ENTER                          &lt 2 SPACE  &td_alt   &kp K_APP
+//                             &kp LCTRL &kp LGUI  &lt 1 ENTER                          &lt 2 SPACE  &kp LALT  &kp K_APP
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
