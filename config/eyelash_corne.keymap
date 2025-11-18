@@ -114,11 +114,11 @@
 //            #binding-cells = <0>;
 //            binding = <&kp LGUI>, <&sk LGUI>;
 //        };
-        td_alt: td_alt {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            binding = <&kp LALT>, <&sk LALT>;
-        };
+//        td_alt: td_alt {
+//            compatible = "zmk,behavior-tap-dance";
+//            #binding-cells = <0>;
+//            binding = <&kp LALT>, <&sk LALT>;
+//        };
     };
 
     macros { 
