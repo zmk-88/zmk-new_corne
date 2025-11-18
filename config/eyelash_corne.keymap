@@ -265,7 +265,7 @@
 &kp ESC    &kp Q     &kp W     &kp E     &kp R     &kp T             &kp UP                &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSPC
 &kp TAB    &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
 &sk LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
-                               &kp LCTRL &kp LGUI  &lt 1 ENTER                          &lt 2 SPACE  &kp LALT  &kp K_APP
+                               &kp LCTRL &td_gui   &lt 1 ENTER                          &lt 2 SPACE  &td_alt   &kp K_APP
 //                             &td_ctrl  &td_gui   &lt 1 ENTER                          &lt 2 SPACE  &td_alt   &kp K_APP
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
