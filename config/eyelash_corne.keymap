@@ -108,15 +108,14 @@
 //            #binding-cells = <0>;
 //            binding = <&kp LCTRL>, <&sk LCTRL>;
 //        };
-        td_gui: td_gui {
-            compatible = "zmk,behavior-tap-dance";
-            // label = "TD_GUI";
-            #binding-cells = <0>;
-            binding = <&kp LGUI>, <&sk LGUI>;
-        };
+//        td_gui: td_gui {
+//            compatible = "zmk,behavior-tap-dance";
+//            // label = "TD_GUI";
+//            #binding-cells = <0>;
+//            binding = <&kp LGUI>, <&sk LGUI>;
+//        };
         td_alt: td_alt {
             compatible = "zmk,behavior-tap-dance";
-            // label = "TD_ALT";
             #binding-cells = <0>;
             binding = <&kp LALT>, <&sk LALT>;
         };
