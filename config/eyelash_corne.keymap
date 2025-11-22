@@ -283,7 +283,7 @@
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5            &trans                &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
 &caps_word &trans    &trans    &trans    &kp PIPE  &kp BSLH  &trans  &trans     &trans     &kp PLUS  &kp N4    &kp N5    &kp N6    &kp EQUAL &kp INS
-&trans     &trans    &trans    &trans    &trans    &kp UNDER &trans  &trans                &kp MINUS &kp N1    &kp N2    &kp N3    &trans    &trans 
+&trans     &trans    &trans    &trans    &trans    &kp UNDER &trans  &trans                &kp MINUS &kp N1    &kp N2    &kp N3    &trans    &key_repeat 
                                &trans    &trans    &trans                                  &trans    &trans    &sl 5
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -296,7 +296,7 @@
 &to 7      &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &kp UP                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
 &to 8      &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
 &trans     &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
-                               &trans    &trans    &trans                                  &trans    &trans    &trans
+                               &trans    &trans    &trans                                  &trans    &trans    &kp K_APP
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -345,7 +345,7 @@
 &to 0      &kp F11   &kp F12   &kp F13   &kp F14   &kp F15           &none                 &kp F16   &kp F17   &kp F18   &kp F19   &kp F20   &none
 &none      &kp F21   &kp F22   &kp F23   &kp F24   &none   &none     &none     &none       &none     &none     &none     &none     &none     &none
 &none      &none     &none     &none     &none     &none   &none     &none                 &none     &none     &none     &none     &none     &none                    
-                               &trans    &trans    &trans                                  &trans    &trans    &trans
+                               &trans    &trans    &trans                                  &trans    &trans    &kp K_APP
             >;
             sensor-bindings = <&scroll_encoder>;
         };
