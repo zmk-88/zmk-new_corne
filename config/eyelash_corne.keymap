@@ -11,6 +11,9 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define KP_STAR KP_ASTERISK
+#define VOL_U   K_VOL_UP
+#define VOL_D   K_VOL_DN
+#define VOL_0   K_MUTE
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -294,8 +297,8 @@
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &to 7      &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &kp UP                &kp CARET &kp AMPS  &kp STAR  &td_lpar  &td_rpar  &trans
-&to 8      &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp J     &kp K     &kp L     &td_semi  &td_quot
-&trans     &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp M     &td_comma &td_dot   &td_slash &sk LSHFT
+&to 8      &kp A     &kp S     &kp D     &kp F     &kp G   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H     &kp VOL_0 &kp K     &kp L     &td_semi  &td_quot
+&trans     &kp Z     &kp X     &kp C     &kp V     &kp B   &none     &kp DOWN              &kp N     &kp VOL_U &kp VOL_D &td_dot   &td_slash &sk LSHFT
                                &trans    &trans    &trans                                  &trans    &trans    &kp K_APP
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -367,8 +370,8 @@
             bindings = <
 //         |             |             |             |             |               .        .        .       |             |          |          |          |             |         
 &to 0      &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_N4     &kp KP_N5                &none            &kp KP_N6     &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0     &none
-&none      &none         &none         &kp KP_STAR   &kp KP_COMMA  &kp KP_DOT      &none    &none    &none   &kp KP_PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp EQUAL     &none
-&kp LSHFT  &none         &none         &none         &kp KP_LPAR   &kp KP_RPAR     &none    &none            &kp KP_MINUS  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH  &none 
+&none      &none         &none         &none         &none         &none           &none    &none    &none   &kp KP_PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_STAR   &kp KP_DOT
+&kp LSHFT  &none         &none         &none         &none         &none           &none    &none            &kp KP_MINUS  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH  &kp KP_ENTER 
                          &trans        &trans        &trans                                                  &trans        &trans     &trans
             >;
             sensor-bindings = <&scroll_encoder>;
