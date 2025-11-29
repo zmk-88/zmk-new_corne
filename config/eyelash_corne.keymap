@@ -127,6 +127,29 @@
 
     macros { 
 
+        m_ctl_l: ctrl_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LCTRL>
+                , <&macro_tap     &kp LEFT>
+                , <&macro_release &kp LCTRL>
+            ;
+        };
+        m_ctl_r: ctrl_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press   &kp LCTRL>
+                , <&macro_tap     &kp RIGHT>
+                , <&macro_release &kp LCTRL>
+            ;
+        };
+    
         m_ctlgui_l: ctrl_gui_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -269,12 +292,12 @@
             bindings = <
 //         |         |         |         |         |       .         .          .          |         |         |         |         |         |         .
 &kp TILDE  &trans    &mkp LCLK &msc SCRL_UP 
-                                         &mkp RCLK &trans            &trans                &kp HOME  &trans    &kp UP    &trans    &kp PG_UP &trans
+                                         &mkp RCLK &trans            &m_ctl_l              &kp HOME  &trans    &kp UP    &trans    &kp PG_UP &trans
 &to 4      &trans    &msc SCRL_LEFT 
                                &msc SCRL_DOWN 
                                          &msc SCRL_RIGHT
-                                                   &trans  &m_ctlgui_l &trans &m_ctlgui_r  &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
-&trans     &m_guil_l &m_guil_r  &m_omega  &m_aq_l  &m_aq_r &trans      &trans   &trans     &trans    &trans    &trans    &trans    &trans    &trans 
+                                                   &trans  &m_ctlgui_l &trans  &m_ctlgui_r &kp END   &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans 
+&trans     &m_guil_l &m_guil_r  &m_omega  &m_aq_l  &m_aq_r &trans      &m_ctl_r   &trans   &trans    &trans    &trans    &trans    &trans    &trans 
                                 &trans    &trans   &trans                                  &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
